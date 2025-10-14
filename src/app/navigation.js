@@ -38,7 +38,7 @@ export function Navigation() {
           className="flex items-center space-x-2 font-semibold text-black dark:text-white"
         >
           <Image
-            src={"/bikkubs.jpg"}
+            src={"/bikku.jpg"}
             width={40}
             height={40}
             alt="bikku-inage"

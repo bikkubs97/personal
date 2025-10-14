@@ -7,27 +7,27 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const images = [
   {
-    src: "/deer.jpg",
+    src: "/deers.jpg",
     alt: "House in the woods",
   },
   {
-    src: "/monkey.jpg",
+    src: "/monkeys.jpg",
     alt: "House above the clouds",
   },
   {
-    src: "/sunset.jpg",
+    src: "/sunsets.jpg",
     alt: "Greens all over",
   },
   {
-    src: "/synagog.jpg",
+    src: "/synagogs.jpg",
     alt: "Rivers are serene",
   },
    {
-    src: "/plant.jpg",
+    src: "/plants.jpg",
     alt: "Rivers are serene",
   },
    {
-    src: "/night.jpg",
+    src: "/nights.jpg",
     alt: "Rivers are serene",
   },
 ];
