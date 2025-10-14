@@ -15,7 +15,7 @@ export default function FeaturedProjects() {
   return (
     <section
       id="projects"
-      className="bg-gradient-to-b from-black via-[#3e0054] to-black px-4 md:px-8 lg:px-12 py-8 space-y-8"
+      className="bg-black px-4 md:px-8 lg:px-12 py-8 space-y-8"
     >
       {/* Featured Project Heading */}
       <motion.h2

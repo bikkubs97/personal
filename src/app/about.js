@@ -26,24 +26,22 @@ export default function AboutMe() {
                       company: "Black Pagoda Advisors",
                       role: "Full Stack Engineer",
                       points: [
-                        "Authored technical documentation to streamline development processes.",
-                        "Collaborated with open-source developers to enhance scalability and performance.",
+                        "Experienced in UI design and development using Figma, Next.js, TypeScript , Tailwind CSS, Webflow, creating visually appealing user interfaces",
+                        "Worked on scalable back-end applications with Node JS and Mongo DB. Worked with OpenAI APIs and to build intelligent chatbots, enhancing user interaction and automation.",
                       ],
                     },
                     {
                       company: "Afame Technologies",
                       role: "Full Stack Developer Intern",
                       points: [
-                        "Developed documentation for API integrations and system architecture.",
-                        "Worked with open-source communities to implement feature enhancements.",
+                        "Worked on projects using MERN Stack",
                       ],
                     },
                     {
                       company: "Business Web Solutions",
                       role: "Full Stack Developer Intern",
                       points: [
-                        "Created documentation for web applications.",
-                        "Contributed to UI/UX improvements in open-source projects.",
+                        "Worked on projects using MERN Stack and Python",
                       ],
                     },
                   ].map((item, i) => (
@@ -78,14 +76,14 @@ export default function AboutMe() {
                 <div className="space-y-6">
                   {[
                     {
-                      platform: "FreeCodeCamp",
+                      platform: "IBM - Coursera",
                       course: "Full Stack Web Development",
-                      topics: ["JavaScript, React, Node.js", "Responsive Design"],
+                      topics: ["JavaScript, React, Node.js", "MongoDB, Python, ML"],
                     },
                     {
-                      platform: "Coursera",
-                      course: "Backend Development",
-                      topics: ["APIs with Node & Express", "MongoDB & REST"],
+                      platform: "Google - Coursera",
+                      course: "UX Design Professional Certification",
+                      topics: ["UX Research & Prototyping", "Figma & Adobe XD"],
                     },
                   ].map((cert, i) => (
                     <motion.div
@@ -129,8 +127,8 @@ export default function AboutMe() {
                   </h2>
                   <h3 className="text-xs md:text-sm text-gray-300 mb-3">B.Tech in ECE</h3>
                   <ul className="list-disc list-inside space-y-1 text-xs md:text-sm text-gray-400">
-                    <li>Graduated with Distinction</li>
-                    <li>Led projects on AI and Web Development</li>
+                    <li>Graduated with CGPA 6.98</li>
+                    <li>Graduation project : Smart Indoor Localization using Li-Fi</li>
                   </ul>
                 </motion.div>
               ),

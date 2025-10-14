@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
         <div className="flex items-center gap-6 text-white text-3xl">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/bikkubs97"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-purple-400 transition duration-200"
@@ -21,7 +21,7 @@ export default function Footer() {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/bikku-bs/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-purple-400 transition duration-200"
@@ -30,7 +30,7 @@ export default function Footer() {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:your@email.com"
+            href="mailto:bikku4444@gmail.com"
             className="hover:text-purple-400 transition duration-200"
             aria-label="Email"
           >
