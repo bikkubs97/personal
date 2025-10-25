@@ -19,7 +19,6 @@ export default function Home() {
         <FeaturedProjects />
       <AboutMe />
       <Gallery />
-    
       <Footer />
     </>
   );

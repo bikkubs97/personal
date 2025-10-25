@@ -13,7 +13,7 @@ export function Navigation() {
 
     { name: "About me", link: "#about" },
     { name: "Gallery", link: "/#gallery" },
-    { name: "Resume", link: "/resume.pdf" },
+    { name: "Resume", link: "/myresume.pdf" },
   ];
 
   function handleToggle() {
