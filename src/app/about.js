@@ -1,18 +1,10 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { Timeline } from "@/components/ui/timeline";
 
 const cardClass =
-  "rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-[0_16px_50px_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.085]";
-
-const cardMotion = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  whileHover: { scale: 1.01 },
-};
+  "apple-card rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-[0_16px_50px_rgba(0,0,0,0.3)] backdrop-blur-xl";
 
 export default function AboutMe() {
   return (
@@ -30,11 +22,7 @@ export default function AboutMe() {
               subtitle: "Summary",
               date: "Now",
               content: (
-                <motion.div
-                  className={cardClass}
-                  {...cardMotion}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                >
+                <div className={cardClass}>
                   <h2 className="mb-3 text-lg font-semibold leading-snug text-white md:text-xl">
                     Full-Stack Engineer
                   </h2>
@@ -46,7 +34,7 @@ export default function AboutMe() {
                     ownership, and solving real business problems through
                     engineering.
                   </p>
-                </motion.div>
+                </div>
               ),
             },
             {
@@ -72,12 +60,10 @@ export default function AboutMe() {
                       label: "AI & Growth",
                       skills: "OpenAI API integration, SEO, automation systems",
                     },
-                  ].map((group, i) => (
-                    <motion.div
+                  ].map((group) => (
+                    <div
                       key={group.label}
                       className={cardClass}
-                      {...cardMotion}
-                      transition={{ duration: 0.6, delay: i * 0.12, ease: "easeOut" }}
                     >
                       <h2 className="mb-2 text-base font-semibold leading-snug text-white md:text-lg">
                         {group.label}
@@ -85,7 +71,7 @@ export default function AboutMe() {
                       <p className="text-sm leading-6 text-neutral-300">
                         {group.skills}
                       </p>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               ),
@@ -124,12 +110,10 @@ export default function AboutMe() {
                         "Worked across frontend and backend systems using MERN stack and Python to deliver production features.",
                       ],
                     },
-                  ].map((item, i) => (
-                    <motion.div
+                  ].map((item) => (
+                    <div
                       key={item.company}
                       className={cardClass}
-                      {...cardMotion}
-                      transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
                     >
                       <h2 className="text-lg font-semibold leading-snug text-white md:text-xl">
                         {item.company}
@@ -142,7 +126,7 @@ export default function AboutMe() {
                           <li key={idx}>{point}</li>
                         ))}
                       </ul>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               ),
@@ -166,12 +150,10 @@ export default function AboutMe() {
                       details:
                         "Developed an Android application integrated with a LiFi-based lighting system for indoor navigation.",
                     },
-                  ].map((project, i) => (
-                    <motion.div
+                  ].map((project) => (
+                    <div
                       key={project.name}
                       className={cardClass}
-                      {...cardMotion}
-                      transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
                     >
                       <h2 className="text-lg font-semibold leading-snug text-white md:text-xl">
                         {project.name}
@@ -182,7 +164,7 @@ export default function AboutMe() {
                       <p className="text-sm leading-7 text-neutral-300 md:text-base">
                         {project.details}
                       </p>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               ),
@@ -204,12 +186,10 @@ export default function AboutMe() {
                       course: "UX Design Professional Certificate",
                       topics: ["UX research and prototyping", "User-centered product design"],
                     },
-                  ].map((cert, i) => (
-                    <motion.div
+                  ].map((cert) => (
+                    <div
                       key={cert.course}
                       className={cardClass}
-                      {...cardMotion}
-                      transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
                     >
                       <h2 className="text-lg font-semibold leading-snug text-white md:text-xl">
                         {cert.platform}
@@ -222,7 +202,7 @@ export default function AboutMe() {
                           <li key={idx}>{t}</li>
                         ))}
                       </ul>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               ),
@@ -232,11 +212,7 @@ export default function AboutMe() {
               subtitle: "Academic Background",
               date: "2019 - 2023",
               content: (
-                <motion.div
-                  className={cardClass}
-                  {...cardMotion}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                >
+                <div className={cardClass}>
                   <h2 className="text-lg font-semibold leading-snug text-white md:text-xl">
                     APJ Abdul Kalam Technological University
                   </h2>
@@ -247,7 +223,7 @@ export default function AboutMe() {
                     <li>Graduated with CGPA 6.98</li>
                     <li>Higher Secondary, Science Group: 91%</li>
                   </ul>
-                </motion.div>
+                </div>
               ),
             },
           ]}

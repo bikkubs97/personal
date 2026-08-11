@@ -30,19 +30,10 @@ export default function FeaturedProjects() {
 
       {/* Full-width project cards */}
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4">
-        {devProjects.map((project, index) => (
-          <motion.div
+        {devProjects.map((project) => (
+          <div
             key={project.title}
-            className="flex w-full flex-col items-start justify-between gap-5 rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.34)] backdrop-blur-xl transition-colors hover:bg-white/[0.08] md:flex-row md:items-center md:p-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.6,
-              delay: index * 0.15,
-              ease: "easeOut",
-            }}
-            whileHover={{ scale: 1.01 }}
+            className="apple-card flex w-full flex-col items-start justify-between gap-5 rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.34)] backdrop-blur-xl md:flex-row md:items-center md:p-6"
           >
             <div className="flex-1">
               <h3 className="mb-2 text-xl font-semibold text-white md:text-2xl">
@@ -71,7 +62,7 @@ export default function FeaturedProjects() {
                 GitHub
               </a>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 

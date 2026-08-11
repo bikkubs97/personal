@@ -69,7 +69,7 @@ export function Timeline({ data }) {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-t from-violet-400 via-cyan-300 to-transparent from-[0%] via-[10%]"
+            className="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-t from-violet-500 via-purple-300 to-transparent from-[0%] via-[10%]"
           />
         </div>
       </div>

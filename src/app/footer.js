@@ -14,7 +14,7 @@ export default function Footer() {
             href="https://github.com/bikkubs97"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-white/10 bg-white/[0.04] p-2 transition duration-200 hover:bg-white/[0.1] hover:text-cyan-200"
+            className="rounded-lg border border-white/10 bg-white/[0.04] p-2 transition duration-200 hover:bg-white/[0.1] hover:text-purple-200"
             aria-label="GitHub"
           >
             <FaGithub />
@@ -23,14 +23,14 @@ export default function Footer() {
             href="https://www.linkedin.com/in/bikku-bs/"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-white/10 bg-white/[0.04] p-2 transition duration-200 hover:bg-white/[0.1] hover:text-cyan-200"
+            className="rounded-lg border border-white/10 bg-white/[0.04] p-2 transition duration-200 hover:bg-white/[0.1] hover:text-purple-200"
             aria-label="LinkedIn"
           >
             <FaLinkedin />
           </a>
           <a
             href="mailto:bikku4444@gmail.com"
-            className="rounded-lg border border-white/10 bg-white/[0.04] p-2 transition duration-200 hover:bg-white/[0.1] hover:text-cyan-200"
+            className="rounded-lg border border-white/10 bg-white/[0.04] p-2 transition duration-200 hover:bg-white/[0.1] hover:text-purple-200"
             aria-label="Email"
           >
             <FaEnvelope />
