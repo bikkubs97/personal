@@ -1,8 +1,6 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 
 const images = [
@@ -22,11 +20,11 @@ const images = [
     src: "/synagogs.jpg",
     alt: "Rivers are serene",
   },
-   {
+  {
     src: "/plants.jpg",
     alt: "Rivers are serene",
   },
-   {
+  {
     src: "/nights.jpg",
     alt: "Rivers are serene",
   },
@@ -34,33 +32,32 @@ const images = [
 
 export default function MasonryGallery() {
   return (
-    <section id="gallery" className="bg-black relative py-16 overflow-hidden px-10">
-      {/* Purple blurred background */}
-      <div className="absolute top-1/2 left-1/2 w-[80vw] h-[300px] bg-purple-700 opacity-20 blur-3xl rounded-full transform -translate-x-1/2 -translate-y-1/2 z-0" />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white mb-24 text-center">
-         Some of My Clicks
+    <section id="gallery" className="relative overflow-hidden bg-black px-4 py-16 sm:px-8 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-6xl">
+        <h2 className="mb-10 text-center text-3xl font-semibold leading-tight text-white md:text-4xl">
+          Some of My Clicks
         </h2>
 
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 1200: 3 }}>
-          <Masonry gutter="16px">
-            {images.map((img, idx) => (
-              <div key={idx} className="relative w-full overflow-hidden rounded-lg shadow-md group">
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={idx === 0}
-                  />
-                </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {images.map((img, idx) => (
+            <div
+              key={img.src}
+              className="group relative w-full overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] shadow-[0_16px_50px_rgba(0,0,0,0.34)]"
+            >
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover opacity-95 transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={idx === 0}
+                />
               </div>
-            ))}
-          </Masonry>
-        </ResponsiveMasonry>
+              <div className="pointer-events-none absolute inset-0 border border-white/5" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

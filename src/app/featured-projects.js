@@ -15,11 +15,11 @@ export default function FeaturedProjects() {
   return (
     <section
       id="projects"
-      className="bg-black px-4 md:px-8 lg:px-12 py-8 space-y-8"
+      className="bg-black px-4 py-14 md:px-8 lg:px-12"
     >
       {/* Featured Project Heading */}
       <motion.h2
-        className="text-3xl md:text-4xl font-bold text-purple-300 text-center mb-4"
+        className="mx-auto mb-10 max-w-4xl text-center text-3xl font-semibold leading-tight text-white md:text-4xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -29,11 +29,11 @@ export default function FeaturedProjects() {
       </motion.h2>
 
       {/* Full-width project cards */}
-      <div className="flex flex-col gap-4 w-full">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4">
         {devProjects.map((project, index) => (
           <motion.div
             key={project.title}
-            className="bg-white/5 backdrop-blur-md border border-gray-700/20 rounded-xl p-4 shadow-md hover:bg-white/10 transition-colors w-full flex flex-col md:flex-row justify-between items-start md:items-center"
+            className="flex w-full flex-col items-start justify-between gap-5 rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.34)] backdrop-blur-xl transition-colors hover:bg-white/[0.08] md:flex-row md:items-center md:p-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -44,25 +44,29 @@ export default function FeaturedProjects() {
             }}
             whileHover={{ scale: 1.01 }}
           >
-            <div className="flex-1 mb-3 md:mb-0">
-              <h3 className="text-gray-200 text-xl md:text-2xl font-semibold mb-1">
+            <div className="flex-1">
+              <h3 className="mb-2 text-xl font-semibold text-white md:text-2xl">
                 {project.title}
               </h3>
-              <p className="text-gray-400 text-sm md:text-base">{project.description}</p>
+              <p className="max-w-2xl text-sm leading-6 text-neutral-300 md:text-base">
+                {project.description}
+              </p>
             </div>
 
-            <div className="flex gap-3 w-full md:w-auto">
+            <div className="flex w-full gap-3 md:w-auto">
               <a
                 href={project.liveDemo}
                 target="_blank"
-                className="flex-1 md:flex-none rounded-lg bg-purple-600/80 px-3 py-1.5 text-sm text-center text-white hover:bg-purple-700 transition shadow-sm"
+                rel="noopener noreferrer"
+                className="flex-1 rounded-lg bg-white px-4 py-2 text-center text-sm font-medium text-black shadow-sm transition hover:bg-neutral-200 md:flex-none"
               >
                 Live Demo
               </a>
               <a
                 href={project.github}
                 target="_blank"
-                className="flex-1 md:flex-none rounded-lg bg-purple-600/80 px-3 py-1.5 text-sm text-center text-white hover:bg-purple-700 transition shadow-sm"
+                rel="noopener noreferrer"
+                className="flex-1 rounded-lg border border-white/14 bg-white/[0.06] px-4 py-2 text-center text-sm font-medium text-white transition hover:bg-white/[0.1] md:flex-none"
               >
                 GitHub
               </a>
@@ -76,7 +80,8 @@ export default function FeaturedProjects() {
         <a
           href="https://github.com/bikkubs97"
           target="_blank"
-          className="inline-block rounded-lg bg-purple-600/80 px-5 py-2 text-white font-semibold hover:bg-purple-700 transition shadow-md"
+          rel="noopener noreferrer"
+          className="inline-block rounded-lg border border-white/12 bg-white/[0.055] px-5 py-2 text-sm font-medium text-white shadow-sm backdrop-blur-md transition hover:bg-white/[0.1]"
         >
           View More Projects
         </a>
