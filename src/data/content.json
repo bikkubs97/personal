@@ -1,0 +1,80 @@
+{
+  "photos": [
+    {
+      "id": 1,
+      "title": "Midnight Streets",
+      "location": "Kochi, India",
+      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+      "description": "A quiet moment after rain, where the city glows in soft reflection and every puddle becomes a second sky.",
+      "tags": ["Night", "Travel", "Urban"]
+    },
+    {
+      "id": 2,
+      "title": "Monsoon Memory",
+      "location": "Munnar",
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      "description": "Cloud-covered hills and misty roads that feel like they were painted by memory itself.",
+      "tags": ["Nature", "Monsoon", "Landscape"]
+    },
+    {
+      "id": 3,
+      "title": "Window Light",
+      "location": "Bengaluru",
+      "image": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+      "description": "Light falling across a room, turning an ordinary corner into a story of stillness and warmth.",
+      "tags": ["Portrait", "Light", "Interior"]
+    },
+    {
+      "id": 4,
+      "title": "Tide Lines",
+      "location": "Goa",
+      "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+      "description": "The shore remembers every wave, and each one leaves behind a different kind of silence.",
+      "tags": ["Sea", "Travel", "Sunset"]
+    }
+  ],
+  "stories": [
+    {
+      "id": 1,
+      "slug": "the-last-train-home",
+      "title": "The Last Train Home",
+      "category": "Short fiction",
+      "readTime": "5 min read",
+      "coverImage": "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "At the edge of rain and midnight, she boarded the last train, carrying a suitcase full of unsent letters.",
+      "content": [
+        "The station smelled of iron and rain, a familiar scent that arrived with every departure and every goodbye. By the time she reached platform nine, the city had already begun to blur into a soft, half-lit memory.",
+        "She stood beneath the yellow lamp, clutching the handle of her suitcase as if it were a promise. Inside were letters she had never had the courage to send, each one folded with the tenderness of a second chance.",
+        "When the train arrived, it did not hiss like the others. It whispered, as if reluctant to break the silence. She stepped in, the door closing gently behind her, and for the first time in years, the night did not feel like an ending. It felt like a beginning she was finally willing to trust."
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "letters-to-the-wind",
+      "title": "Letters to the Wind",
+      "category": "Poetry",
+      "readTime": "3 min read",
+      "coverImage": "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "The wind carried everything I never said, and somehow, in the silence, it became a language of its own.",
+      "content": [
+        "I used to think the wind was a thief, stealing the shape of my thoughts before they could become words. But tonight I hear it differently; it gathers them gently, folds them into the dark, and sends them to a sky that understands all grief.",
+        "What I left unsaid became a weather inside me, soft and restless as rain. The wind keeps passing through my windows, through my name, through the quiet corners of my heart, as if reminding me that nothing is ever truly lost to the world.",
+        "So I write to the wind, not to be heard, but to be translated. And in that translation, even my silence learns how to bloom."
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "the-photographs-beneath-the-bed",
+      "title": "The Photographs Beneath the Bed",
+      "category": "Memoir",
+      "readTime": "6 min read",
+      "coverImage": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "Old photographs never only capture moments. They carry the weight of what we were too young to understand.",
+      "content": [
+        "There is a box beneath my bed that has kept every season of my childhood in paper and fading colour. Every photograph is a room I no longer enter, a voice I can no longer hear, and yet each one feels strangely alive.",
+        "When I open it, I am not returning to the past. I am learning how to hold it with tenderness, like a fragile thing that has survived its own weather. The faces are familiar, but the story inside them is always changing when I look at them again.",
+        "Perhaps that is why memory is so beautiful: it does not preserve the world exactly; it keeps the feeling of it, and lets us grow around that feeling until it becomes part of us."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+node_modules
+.env
+payload.db
+media/
+.next/
+.payload/

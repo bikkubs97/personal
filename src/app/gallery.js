@@ -35,7 +35,7 @@ export default function MasonryGallery() {
     <section id="gallery" className="relative overflow-hidden bg-black px-4 py-16 sm:px-8 lg:px-10">
       <div className="relative z-10 mx-auto max-w-6xl">
         <h2 className="mb-10 text-center text-3xl font-semibold leading-tight text-white md:text-4xl">
-          Some of My Clicks
+        Through My Lens
         </h2>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -5,16 +5,16 @@ import { motion, AnimatePresence } from "motion/react";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import Image from "next/image";
 
+const NAV_ITEMS = Object.freeze([
+  { name: "Home", link: "/" },
+  { name: "About me", link: "/#about" },
+  { name: "Photo Gallery", link: "/photogallery" },
+  { name: "Stories", link: "/stories" },
+  { name: "Resume", link: "/myresume.pdf" },
+]);
+
 export function Navigation() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-
-  const navItems = [
-    { name: "Home", link: "#" },
-
-    { name: "About me", link: "#about" },
-    { name: "Gallery", link: "/#gallery" },
-    { name: "Resume", link: "/myresume.pdf" },
-  ];
 
   function handleToggle() {
     setIsMobileOpen((prev) => !prev);
@@ -50,9 +50,9 @@ export function Navigation() {
 
         {/* Desktop nav items */}
         <div className="hidden gap-6 text-sm text-black/80 dark:text-white/80 md:flex">
-          {navItems.map((item, idx) => (
+          {NAV_ITEMS.map((item) => (
             <a
-              key={idx}
+              key={item.name}
               href={item.link}
               className="relative rounded-full px-4 py-2 transition hover:bg-white/40 hover:backdrop-blur-sm dark:hover:bg-white/10"
             >
@@ -88,9 +88,9 @@ export function Navigation() {
               transition={{ duration: 0.3 }}
               className="mt-4 flex flex-col gap-3 rounded-xl bg-white/40 p-4 text-black md:hidden"
             >
-              {navItems.map((item, idx) => (
+              {NAV_ITEMS.map((item) => (
                 <a
-                  key={idx}
+                  key={item.name}
                   href={item.link}
                   onClick={handleClose}
                   className="w-full rounded-lg px-3 py-2 text-left hover:bg-white/60 dark:hover:bg-white/20"
