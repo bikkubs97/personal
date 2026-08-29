@@ -1,5 +1,6 @@
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
@@ -9,6 +10,17 @@ const dirname = path.dirname(filename);
 
 const authenticated = ({ req }: { req: { user?: unknown } }) => Boolean(req.user);
 
+const storagePlugins = process.env.BLOB_READ_WRITE_TOKEN
+  ? [
+      vercelBlobStorage({
+        collections: {
+          media: true,
+        },
+        token: process.env.BLOB_READ_WRITE_TOKEN,
+      }),
+    ]
+  : [];
+
 export default buildConfig({
   admin: {
     user: "users",
@@ -16,6 +28,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  plugins: storagePlugins,
   editor: lexicalEditor(),
   collections: [
     {
