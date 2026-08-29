@@ -84,6 +84,7 @@ export default buildConfig({
   ],
   secret: process.env.PAYLOAD_SECRET || "development-payload-secret-change-before-production",
   db: sqliteAdapter({
+    wal: true,
     client: { url: process.env.DATABASE_URI || "file:./payload.db" },
   }),
   typescript: {
