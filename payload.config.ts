@@ -82,10 +82,12 @@ export default buildConfig({
       fields: [{ name: "alt", type: "text", required: true }],
     },
   ],
-  secret: process.env.PAYLOAD_SECRET || "development-payload-secret-change-before-production",
+  secret: process.env.PAYLOAD_SECRET!,
   db: sqliteAdapter({
-    wal: true,
-    client: { url: process.env.DATABASE_URI || "file:./payload.db" },
+    client: {
+      url: process.env.DATABASE_URI!,
+      authToken: process.env.DATABASE_AUTH_TOKEN,
+    },
   }),
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
