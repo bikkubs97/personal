@@ -89,7 +89,6 @@ export default function AboutMe() {
                       points: [
                         "Built and shipped production-ready features end-to-end using Next.js, TypeScript, and Node.js across multiple client products.",
                         "Developed scalable backend APIs and data workflows using Node.js and MongoDB to support business-critical operations.",
-                        "Built a B2B marketplace platform enabling accounting firms to list services and generate leads.",
                         "Designed lead capture and qualification funnels integrated with GoHighLevel and Zoho, improving lead tracking and reducing manual follow-up.",
                         "Automated internal and marketing workflows using n8n, reducing repetitive operational work.",
                         "Improved organic search performance across multiple websites with technical SEO and automation strategies.",

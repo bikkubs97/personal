@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const NAV_ITEMS = Object.freeze([
   { name: "Home", link: "/" },
@@ -33,8 +34,8 @@ export function Navigation() {
     >
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#"
+        <Link
+          href="/"
           className="flex items-center space-x-2 font-semibold text-black dark:text-white"
         >
           <Image
@@ -46,7 +47,7 @@ export function Navigation() {
           />
 
           <span>Bikku BS</span>
-        </a>
+        </Link>
 
         {/* Desktop nav items */}
         <div className="hidden gap-6 text-sm text-black/80 dark:text-white/80 md:flex">
