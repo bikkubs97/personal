@@ -11,16 +11,18 @@ const dirname = path.dirname(filename);
 
 const authenticated = ({ req }: { req: { user?: unknown } }) => Boolean(req.user);
 
-const storagePlugins = process.env.BLOB_READ_WRITE_TOKEN
-  ? [
-      vercelBlobStorage({
-        collections: {
-          media: true,
-        },
-        token: process.env.BLOB_READ_WRITE_TOKEN,
-      }),
-    ]
-  : [];
+// Keep this plugin registered in every environment. Its disabled mode falls
+// back to local storage without a token, while ensuring Payload generates the
+// same import map used by production's Vercel Blob upload component.
+const storagePlugins = [
+  vercelBlobStorage({
+    alwaysInsertFields: true,
+    collections: {
+      media: true,
+    },
+    token: process.env.BLOB_READ_WRITE_TOKEN,
+  }),
+];
 
 export default buildConfig({
   admin: {
