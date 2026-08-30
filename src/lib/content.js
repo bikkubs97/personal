@@ -26,6 +26,7 @@ export async function getPhotoGalleryEntries() {
       description: entry.description,
       image: image.url,
       tags: entry.tags?.map(({ tag }) => tag).filter(Boolean) || [],
+      likes: entry.likes || 0,
     }];
   });
 }

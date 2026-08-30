@@ -2,11 +2,17 @@
   "name": "bikku-portfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate:types": "payload generate:types",
+    "migrate": "payload migrate",
+    "migrate:status": "payload migrate:status"
   },
   "dependencies": {
     "@payloadcms/db-sqlite": "^3.88.0",

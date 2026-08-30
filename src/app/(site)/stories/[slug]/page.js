@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Navigation } from "../../../navigation";
 import { getStoryEntries } from "@/lib/content";
+import { StoryComments } from "@/app/story-comments";
 
 export const dynamic = 'force-dynamic';
 
@@ -60,6 +61,7 @@ export default async function StoryDetailPage({ params }) {
             />
           </div>
         </article>
+        <StoryComments storyId={story.id} />
         </div>
       </main>
     </>

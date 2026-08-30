@@ -9,6 +9,17 @@ export default function PhotoGalleryPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [likedPhotoIds, setLikedPhotoIds] = useState(() => {
+    if (typeof window === "undefined") return new Set();
+
+    try {
+      const savedLikes = JSON.parse(window.localStorage.getItem("liked-gallery-photos") || "[]");
+      return Array.isArray(savedLikes) ? new Set(savedLikes.map(String)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
+  const [likingPhotoIds, setLikingPhotoIds] = useState(() => new Set());
 
   useEffect(() => {
     let active = true;
@@ -62,6 +73,36 @@ export default function PhotoGalleryPage() {
     setSelectedIndex((prev) => (prev === null ? 0 : (prev + 1) % entries.length));
   };
 
+  const likePhoto = async (event, photoId) => {
+    event.stopPropagation();
+    const id = String(photoId);
+    if (likedPhotoIds.has(id) || likingPhotoIds.has(id)) return;
+
+    setLikingPhotoIds((previous) => new Set(previous).add(id));
+    try {
+      const response = await fetch(`/api/photos/${encodeURIComponent(id)}/like`, { method: "POST" });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Could not save your like.");
+
+      setEntries((previous) => previous.map((entry) => (
+        String(entry.id) === id ? { ...entry, likes: result.likes } : entry
+      )));
+      setLikedPhotoIds((previous) => {
+        const next = new Set(previous).add(id);
+        window.localStorage.setItem("liked-gallery-photos", JSON.stringify([...next]));
+        return next;
+      });
+    } catch (likeError) {
+      setError(likeError.message || "Could not save your like.");
+    } finally {
+      setLikingPhotoIds((previous) => {
+        const next = new Set(previous);
+        next.delete(id);
+        return next;
+      });
+    }
+  };
+
   return (
     <>
       <Navigation />
@@ -113,6 +154,19 @@ export default function PhotoGalleryPage() {
               </div>
 
               <div className="space-y-4 p-5 sm:p-6">
+                <div className="flex items-center justify-between gap-3">
+                  <button
+                    type="button"
+                    onClick={(event) => likePhoto(event, entry.id)}
+                    disabled={likedPhotoIds.has(String(entry.id)) || likingPhotoIds.has(String(entry.id))}
+                    aria-label={likedPhotoIds.has(String(entry.id)) ? "You liked this photo" : "Like this photo"}
+                    className="inline-flex items-center gap-2 rounded-full border border-fuchsia-400/30 bg-fuchsia-500/10 px-3 py-1.5 text-sm text-fuchsia-100 transition hover:bg-fuchsia-500/20 disabled:cursor-default disabled:opacity-70"
+                  >
+                    <span aria-hidden="true">{likedPhotoIds.has(String(entry.id)) ? "♥" : "♡"}</span>
+                    {entry.likes || 0}
+                  </button>
+                  {likingPhotoIds.has(String(entry.id)) && <span className="text-xs text-slate-400">Saving…</span>}
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {entry.tags.map((tag) => (
                     <span

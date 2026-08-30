@@ -3,6 +3,7 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import path from "path";
 import { buildConfig } from "payload";
+import sharp from "sharp";
 import { fileURLToPath } from "url";
 
 const filename = fileURLToPath(import.meta.url);
@@ -30,6 +31,7 @@ export default buildConfig({
   },
   plugins: storagePlugins,
   editor: lexicalEditor(),
+  sharp,
   collections: [
     {
       slug: "users",
@@ -56,6 +58,13 @@ export default buildConfig({
           type: "array",
           fields: [{ name: "tag", type: "text", required: true }],
         },
+        {
+          name: "likes",
+          type: "number",
+          defaultValue: 0,
+          min: 0,
+          admin: { readOnly: true },
+        },
       ],
     },
     {
@@ -74,6 +83,29 @@ export default buildConfig({
         { name: "readTime", type: "text", required: true },
         { name: "excerpt", type: "textarea", required: true },
         { name: "content", type: "richText", required: true },
+      ],
+    },
+    {
+      slug: "story-comments",
+      admin: {
+        useAsTitle: "authorName",
+        defaultColumns: ["authorName", "story", "createdAt"],
+      },
+      access: {
+        read: () => true,
+        create: () => true,
+        update: authenticated,
+        delete: authenticated,
+      },
+      fields: [
+        {
+          name: "story",
+          type: "relationship",
+          relationTo: "stories",
+          required: true,
+        },
+        { name: "authorName", type: "text", required: true },
+        { name: "message", type: "textarea", required: true },
       ],
     },
     {
@@ -101,6 +133,9 @@ export default buildConfig({
       url: process.env.DATABASE_URI!,
       authToken: process.env.DATABASE_AUTH_TOKEN,
     },
+    // This database already contains production content. Apply schema changes
+    // through reviewed migrations instead of pushing DDL on every dev reload.
+    push: false,
   }),
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
