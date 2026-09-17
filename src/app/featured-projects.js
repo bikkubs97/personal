@@ -7,7 +7,7 @@ export default function FeaturedProjects() {
       title: "Lilly.AI",
       description:
         "A friendly chatbot for mental health support, built with empathetic design and AI-driven responses.",
-      liveDemo: "http://lillychat.live/",
+      liveDemo: "http://lillychat.online/",
       github: "https://github.com/bikkubs97/lilly-chat",
     },
   ];
