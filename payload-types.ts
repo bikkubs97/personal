@@ -176,7 +176,6 @@ export interface PhotoGallery {
 export interface Media {
   id: number;
   alt: string;
-  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -218,10 +217,7 @@ export interface Story {
   category: string;
   readTime: string;
   excerpt: string;
-  /**
-   * Mark this story as the featured story. Only one story should be featured at a time.
-   */
-  featured?: boolean | null;
+  featured: boolean;
   content: {
     root: {
       type: string;
@@ -412,7 +408,6 @@ export interface StoryCommentsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
-  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
