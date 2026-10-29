@@ -11,22 +11,6 @@ const dirname = path.dirname(filename);
 
 const authenticated = ({ req }: { req: { user?: unknown } }) => Boolean(req.user);
 
-const payloadSecret = process.env.PAYLOAD_SECRET ||
-  (process.env.NODE_ENV === "production"
-    ? undefined
-    : "local-development-secret-change-before-deploy");
-const databaseUrl = process.env.DATABASE_URI ||
-  (process.env.NODE_ENV === "production" ? undefined : "file:./payload.db");
-const usesLocalDatabase = !process.env.DATABASE_URI;
-
-if (!payloadSecret) {
-  throw new Error("PAYLOAD_SECRET must be set in production.");
-}
-
-if (!databaseUrl) {
-  throw new Error("DATABASE_URI must be set in production.");
-}
-
 // Keep this plugin registered in every environment. Its disabled mode falls
 // back to local storage without a token, while ensuring Payload generates the
 // same import map used by production's Vercel Blob upload component.
@@ -153,15 +137,15 @@ export default buildConfig({
       fields: [{ name: "alt", type: "text", required: true }],
     },
   ],
-  secret: payloadSecret,
+  secret: process.env.PAYLOAD_SECRET!,
   db: sqliteAdapter({
     client: {
-      url: databaseUrl,
+      url: process.env.DATABASE_URI!,
       authToken: process.env.DATABASE_AUTH_TOKEN,
     },
-    // Keep configured databases migration-managed; initialize the local
-    // fallback database automatically so a fresh checkout can run the CMS.
-    push: usesLocalDatabase,
+    // This database already contains production content. Apply schema changes
+    // through reviewed migrations instead of pushing DDL on every dev reload.
+    push: false,
   }),
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
