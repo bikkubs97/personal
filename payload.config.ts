@@ -84,14 +84,6 @@ export default buildConfig({
         { name: "category", type: "text", required: true },
         { name: "readTime", type: "text", required: true },
         { name: "excerpt", type: "textarea", required: true },
-        {
-          name: "featured",
-          type: "checkbox",
-          defaultValue: false,
-          admin: {
-            description: "Mark this story as the featured story. Only one story should be featured at a time.",
-          },
-        },
         { name: "content", type: "richText", required: true },
       ],
     },

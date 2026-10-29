@@ -15,9 +15,6 @@ export default async function StoriesPage() {
     // The CMS will populate this once the database is set up
   }
 
-  const featuredStory = stories.find((story) => story.featured);
-  const otherStories = stories.filter((story) => story.id !== featuredStory?.id);
-
   return (
     <>
       <Navigation />
@@ -47,38 +44,13 @@ export default async function StoriesPage() {
           </div>
         </div>
 
-        {featuredStory && (
-          <section className="mb-10 overflow-hidden rounded-3xl border border-fuchsia-400/30 bg-gradient-to-br from-fuchsia-500/15 via-slate-950/90 to-slate-950/70 p-7 shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:p-10" aria-labelledby="featured-story-heading">
-            <div className="mb-5 inline-flex items-center rounded-full border border-fuchsia-400/30 bg-fuchsia-500/15 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-fuchsia-200">
-              Featured story
-            </div>
-            <div className="mb-4 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
-              <span>{featuredStory.category}</span>
-              <span>•</span>
-              <span>{featuredStory.readTime}</span>
-            </div>
-            <h2 id="featured-story-heading" className="max-w-3xl text-3xl font-semibold text-white sm:text-4xl">
-              {featuredStory.title}
-            </h2>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300">
-              {featuredStory.excerpt}
-            </p>
-            <Link
-              href={`/stories/${featuredStory.slug}`}
-              className="mt-7 inline-flex items-center rounded-full bg-fuchsia-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-fuchsia-200"
-            >
-              Read featured story →
-            </Link>
-          </section>
-        )}
-
         {stories.length === 0 ? (
           <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-8 text-center sm:p-12">
             <p className="text-slate-400">No stories published yet. Check back soon!</p>
           </div>
         ) : (
           <div className="space-y-6">
-            {otherStories.map((story) => (
+            {stories.map((story) => (
             <article
               key={story.id}
               className="rounded-2xl border border-white/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition hover:border-fuchsia-400/50 hover:bg-slate-900/80 sm:p-8"

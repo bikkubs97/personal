@@ -217,7 +217,6 @@ export interface Story {
   category: string;
   readTime: string;
   excerpt: string;
-  featured: boolean;
   content: {
     root: {
       type: string;
@@ -386,7 +385,6 @@ export interface StoriesSelect<T extends boolean = true> {
   category?: T;
   readTime?: T;
   excerpt?: T;
-  featured?: T;
   content?: T;
   updatedAt?: T;
   createdAt?: T;
