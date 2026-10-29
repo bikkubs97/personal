@@ -47,6 +47,7 @@ export async function getStoryEntries() {
     category: story.category,
     readTime: story.readTime,
     excerpt: story.excerpt,
+    featured: Boolean(story.featured),
     content: story.content,
   }));
 }
